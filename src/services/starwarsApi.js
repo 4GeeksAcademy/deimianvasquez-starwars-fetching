@@ -25,6 +25,8 @@ export const getAllPeople = async () => {
                 data.results.map(async (item)=>{
                     const res = await fetch(item.url)
                     const detail = await res.json()
+
+                    detail.result["image"] = `https://raw.githubusercontent.com/breatheco-de/swapi-images/refs/heads/master/public/images/people/${detail.result.uid}.jpg`
                     return detail.result
                 })
             )

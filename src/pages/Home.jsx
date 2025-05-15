@@ -17,7 +17,7 @@ export const Home = () => {
 
 						<div className="my-card">
 							<img
-								src={`https://raw.githubusercontent.com/breatheco-de/swapi-images/refs/heads/master/public/images/people/${item.uid}.jpg`}
+								src={item.image}
 								alt=""
 								className="w-100"
 							/>
