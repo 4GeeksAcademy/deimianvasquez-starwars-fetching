@@ -1,16 +1,40 @@
-import rigoImageUrl from "../assets/img/rigo-baby.jpg";
+
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 
 export const Home = () => {
 
-  const {store, dispatch} =useGlobalReducer()
+	const { store } = useGlobalReducer()
+
+
 
 	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
-			<p>
-				<img src={rigoImageUrl} />
-			</p>
+		<div className="container">
+			<h1 className="text-danger">Characters</h1>
+			<div className="my-carousel">
+
+				{
+					store.characters.map((item, index) => (
+
+						<div className="my-card">
+							<img
+								src={`https://raw.githubusercontent.com/breatheco-de/swapi-images/refs/heads/master/public/images/people/${item.uid}.jpg`}
+								alt=""
+								className="w-100"
+							/>
+							<div>
+								<p>{item.properties.name}</p>
+								<p>{item.properties.hair_color}</p>
+								<p>{item.properties.eye_color}</p>
+
+								<button>learn more</button>
+								<button>fav</button>
+							</div>
+						</div>
+
+					))
+				}
+
+			</div>
 		</div>
 	);
 }; 
